@@ -4,15 +4,16 @@ model_type:
   information_extraction_base_bert
 # mdoel args
 model:        
-  pretrain_model_name_or_path: bert-base-uncased
-  num_class: 5
+  pretrain_model_name_or_path: bert-base-uncased         #   Change to your bert model name or path 
+  num_class: 5                                                                    #   Change to your number of entity categories+1
   device: cuda   
+
 # trainning args
 traininng:
-  batch_size: 1               
+  batch_size: 1                                      
   epochs: 1000          
   learning_rate: 0.00002
-  optimizer: AdamW             
+  optimizer: AdamW                                                           # Currently only supports AdamW and Adam
   weight_decay: 0.0001
   clip_max_norm: 0.5
   factor: 0.3
@@ -22,12 +23,12 @@ traininng:
 dataset_type:
   information_extraction
 dataset:
-  train_data_path: data/train.jsonl 
-  test_data_path: data/test.jsonl 
-  valid_data_path: data/test.jsonl 
-  max_padding_length: 512
+  train_data_path: data/train.jsonl                                       # Replace with the training data path that you have processed yourself
+  test_data_path: data/test.jsonl                                           # Replace with the test data path that you have processed yourself
+  valid_data_path: data/test.jsonl                                         # Replace with the valid data path that you have processed yourself
+  max_padding_length: 512                                                 # Your single data token length should not exceed 512
 
 
 logging:
-  log_interval: 100             
-  save_dir: "./saved_model/test"   
+  log_interval: 100                                                     
+  save_dir: "./saved_model/test"      

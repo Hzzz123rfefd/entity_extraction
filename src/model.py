@@ -280,7 +280,6 @@ class ModelPretrainForInformationExtractionBaseBert(nn.Module):
         for i in range(self.num_class - 1):
             entities.append([])
         
-        """ spilt word """
         input = self.tokenizer(
             text, 
             truncation = True, 
@@ -305,7 +304,6 @@ class ModelPretrainForInformationExtractionBaseBert(nn.Module):
                     index = index + 1
                 t = self.tokenizer.decode(entity_ids,skip_special_tokens = True)
                 entities[entity_label - 1].append(t)
-                print("label:",entity_label.item(),"  enetity:",t)
             index = index + 1
         return entities
     

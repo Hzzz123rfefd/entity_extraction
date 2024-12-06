@@ -1,13 +1,9 @@
 import argparse
 from torch.utils.data import DataLoader
+
 from src.dataset import *
 from src import datasets,models
-import yaml
-
-def load_config(config_path):
-    with open(config_path, 'r') as file:
-        config = yaml.safe_load(file)
-    return config
+from utils import *
 
 
 def main(args):
